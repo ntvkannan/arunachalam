@@ -1,0 +1,279 @@
+/* ==========================================================================
+   Footer — brand, navigation, social + contact controls, copyright row
+   Dark navy in both themes (matches the approved reference).
+   ========================================================================== */
+
+.site-footer {
+    --footer-bg: var(--navy-800);
+    --footer-fg: var(--color-white);
+    --footer-fg-muted: rgb(255 255 255 / 0.82);
+    --footer-line: rgb(255 255 255 / 0.22);
+
+    background-color: var(--footer-bg);
+    border-top: 1px solid rgb(255 255 255 / 0.35);
+    color: var(--footer-fg);
+}
+
+[data-theme="dark"] .site-footer {
+    --footer-bg: #0a1f44;
+    --footer-line: rgb(255 255 255 / 0.18);
+}
+
+.site-footer :focus-visible {
+    outline-color: var(--color-white);
+}
+
+.footer__inner {
+    padding-block: var(--space-6) var(--space-5);
+}
+
+/* Top row (mobile first: stacked and centred) ----------------------------- */
+.footer__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+    text-align: center;
+}
+
+.footer__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-align: left;
+}
+
+.footer__avatar {
+    flex: none;
+    width: 3.25rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+    box-shadow: 0 0 0 2px rgb(255 255 255 / 0.25);
+    background-color: var(--color-white);
+}
+
+.footer__brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.footer__name {
+    font-size: 1.0625rem;
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.footer__tagline {
+    font-size: 0.6875rem;
+    font-weight: var(--fw-medium);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--footer-fg-muted);
+}
+
+/* Navigation */
+.footer__nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer__nav-list li + li {
+    border-left: 1px solid var(--footer-line);
+}
+
+.footer__link {
+    display: inline-block;
+    padding: var(--space-2) clamp(0.75rem, 0.3rem + 1.6vw, 1.25rem);
+    font-size: var(--fs-sm);
+    color: var(--footer-fg);
+}
+
+/* Actions: social circles, divider, Get in Touch */
+.footer__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+}
+
+.footer__social {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer__social-link {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1.5px solid rgb(255 255 255 / 0.85);
+    border-radius: 50%;
+    color: var(--footer-fg);
+    transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.footer__social-link svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.footer__actions-divider {
+    display: none;
+    align-self: stretch;
+    width: 1px;
+    margin-block: var(--space-1);
+    background-color: var(--footer-line);
+}
+
+.footer__contact {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: 2.75rem;
+    padding: var(--space-2) var(--space-4);
+    border: 1.5px solid rgb(255 255 255 / 0.85);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    color: var(--footer-fg);
+    transition: background-color var(--transition-base);
+}
+
+.footer__contact svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Only linked controls look interactive; pending ones (no href yet) stay inert */
+.footer__link[href]:hover,
+.footer__link[href]:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+}
+
+.footer__social-link[href]:hover,
+.footer__contact[href]:hover {
+    background-color: rgb(255 255 255 / 0.12);
+}
+
+/* Divider + bottom row -------------------------------------------------------- */
+.footer__divider {
+    height: 1px;
+    margin-block: var(--space-5);
+    border: 0;
+    background-color: var(--footer-line);
+}
+
+.footer__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--fs-xs);
+    color: var(--footer-fg-muted);
+    text-align: center;
+}
+
+.footer__copyright,
+.footer__motto {
+    margin: 0;
+}
+
+.footer__motto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer__motto span + span {
+    margin-left: var(--space-3);
+    padding-left: var(--space-3);
+    border-left: 1px solid var(--footer-line);
+}
+
+/* Tablet: brand left, actions right, navigation on its own centred row */
+@media (min-width: 40em) {
+    .footer__main {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer__nav {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .footer__actions-divider {
+        display: block;
+    }
+
+    .footer__bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+/* Desktop: brand | navigation | actions on one row */
+@media (min-width: 64em) {
+    .footer__main {
+        flex-wrap: nowrap;
+    }
+
+    .footer__nav {
+        order: 0;
+        flex-basis: auto;
+    }
+
+    .footer__nav-list,
+    .footer__actions {
+        flex-wrap: nowrap;
+    }
+
+    .footer__tagline {
+        white-space: nowrap;
+    }
+
+    .footer__link {
+        padding-inline: clamp(0.5rem, -0.6rem + 1.7vw, 1.25rem);
+    }
+}
+
+/* Narrow desktop: keep all three parts on one row */
+@media (min-width: 64em) and (max-width: 79.99em) {
+    .footer__main {
+        gap: var(--space-3);
+    }
+
+    .footer__actions {
+        gap: var(--space-3);
+    }
+
+    .footer__social {
+        gap: var(--space-2);
+    }
+
+    .footer__social-link {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .footer__contact {
+        padding-inline: var(--space-3);
+    }
+}

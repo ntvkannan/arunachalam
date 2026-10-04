@@ -1,0 +1,285 @@
+/* ==========================================================================
+   Better Tomorrow — scenic quote banner
+   Continuous decoration (sun glow, haze, birds) uses transform/opacity only.
+   ========================================================================== */
+
+.better-tomorrow {
+    --bt-height: clamp(13rem, 8rem + 9vw, 15.5rem);
+    --bt-focus-y: 0.42;          /* vertical crop position of the scene (0 = top, 1 = bottom) */
+    --bt-bird: #1b2a4a;
+    --bt-cycle: 20s;             /* one full sunrise -> daylight -> sunset -> evening loop */
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    container-type: inline-size;
+    height: var(--bt-height);
+    background-color: #f2a65a;
+}
+
+/* Scene: always at least as wide as the section and as tall as the section needs,
+   keeping the image's 3:1 ratio so overlay layers can use image-relative coordinates. */
+.better-tomorrow__scene {
+    --bt-scene-w: max(100cqw, calc(var(--bt-height) * 3));
+
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: calc((var(--bt-height) - var(--bt-scene-w) / 3) * var(--bt-focus-y));
+    width: var(--bt-scene-w);
+    aspect-ratio: 2171 / 724;
+    transform: translateX(-50%);
+}
+
+.better-tomorrow__scene picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.better-tomorrow__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sunrise glow, centred on the sun in the photograph */
+.better-tomorrow__glow {
+    position: absolute;
+    left: 55.3%;
+    top: 53.7%;
+    width: 26%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(255 222 140 / 0.55) 0%, rgb(255 190 90 / 0.22) 38%, transparent 68%);
+    mix-blend-mode: screen;
+    translate: -50% -50%;
+    animation: bt-sun var(--bt-cycle) ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* Day-cycle light layers: soft gradients over the (static) photo, driven by the same 20s cycle */
+.better-tomorrow__sky {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+[data-theme="dark"] .better-tomorrow__sky {
+    opacity: 0.7;
+}
+
+.better-tomorrow__light,
+.better-tomorrow__tint,
+.better-tomorrow__dusk {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    will-change: opacity;
+}
+
+/* Daylight lift: wide, airy brightening around the sun */
+.better-tomorrow__light {
+    background: radial-gradient(ellipse 58% 52% at 55% 46%, rgb(255 246 214 / 0.40), transparent 72%);
+    mix-blend-mode: screen;
+    animation: bt-light var(--bt-cycle) ease-in-out infinite;
+}
+
+/* Golden hour / sunset warmth, gathered low around the horizon */
+.better-tomorrow__tint {
+    background: radial-gradient(ellipse 82% 68% at 55% 64%, rgb(255 150 62 / 0.46), rgb(255 120 60 / 0.20) 55%, transparent 82%);
+    animation: bt-tint var(--bt-cycle) ease-in-out infinite;
+}
+
+/* Soft evening: gentle settling of the light, kept to the lower scene so the quote stays bright */
+.better-tomorrow__dusk {
+    background: linear-gradient(180deg, transparent 38%, rgb(46 52 104 / 0.30) 100%);
+    animation: bt-dusk var(--bt-cycle) ease-in-out infinite;
+}
+
+/* One slow band of haze along the horizon */
+.better-tomorrow__haze {
+    position: absolute;
+    left: -10%;
+    top: 40%;
+    width: 120%;
+    height: 24%;
+    background: radial-gradient(ellipse 30% 50% at 30% 50%, rgb(255 236 200 / 0.20), transparent 100%),
+                radial-gradient(ellipse 28% 50% at 72% 55%, rgb(255 220 170 / 0.16), transparent 100%);
+    animation: bt-haze 48s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+/* Dark theme: gentle dimming so the banner sits in the dark page without turning muddy */
+[data-theme="dark"] .better-tomorrow__scene::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgb(7 19 43 / 0.12), rgb(7 19 43 / 0.28));
+    pointer-events: none;
+}
+
+/* Birds ---------------------------------------------------------------------- */
+.better-tomorrow__birds {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bt-flock {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    color: var(--bt-bird);
+    scale: 1.15;
+    transform-origin: 0 0;
+    will-change: transform, opacity;
+}
+
+.bt-flock--a { top: 58%; width: 3.5rem; height: 2rem; animation: bt-fly 52s linear 2s infinite; }
+.bt-flock--b { top: 72%; width: 2.5rem; height: 1.5rem; animation: bt-fly 74s linear 24s infinite; --bt-peak: 0.6; }
+.bt-flock--c { top: 62%; width: 1.75rem; height: 1rem; animation: bt-fly 96s linear 46s infinite; --bt-peak: 0.38; }
+
+.bt-bird {
+    position: absolute;
+    width: 0.9rem;
+    height: 0.45rem;
+    overflow: visible;
+    animation: bt-flap 1.3s ease-in-out infinite alternate;
+}
+
+.bt-flock--a .bt-bird:nth-child(1) { left: 0.9rem; top: 0.5rem; }
+.bt-flock--a .bt-bird:nth-child(2) { left: 2rem; top: 0.1rem; width: 0.75rem; animation-delay: -0.4s; }
+.bt-flock--a .bt-bird:nth-child(3) { left: 2.7rem; top: 1rem; width: 0.65rem; animation-delay: -0.8s; }
+
+.bt-flock--b .bt-bird:nth-child(1) { left: 0; top: 0.3rem; width: 0.8rem; animation-delay: -0.2s; }
+.bt-flock--b .bt-bird:nth-child(2) { left: 1.3rem; top: 0.8rem; width: 0.65rem; animation-delay: -0.7s; }
+
+.bt-flock--c .bt-bird:nth-child(1) { left: 0; top: 0.2rem; width: 0.55rem; animation-delay: -0.5s; }
+.bt-flock--c .bt-bird:nth-child(2) { left: 0.95rem; top: 0.5rem; width: 0.45rem; animation-delay: -0.9s; }
+
+.bt-bird path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+@media (min-width: 40em) {
+    .bt-flock { scale: 1.5; }
+}
+
+/* Content --------------------------------------------------------------------- */
+.better-tomorrow__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    padding: clamp(1.25rem, 0.6rem + 2.2vw, 2.25rem) var(--container-pad) 0;
+    text-align: center;
+}
+
+.better-tomorrow__quote {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(1.3125rem, 0.95rem + 1.5vw, 2.25rem);
+    font-style: italic;
+    font-weight: var(--fw-medium);
+    line-height: 1.22;
+    color: var(--navy-900);
+    text-shadow: 0 1px 14px rgb(255 240 210 / 0.45);
+}
+
+/* Keyframes (transform + opacity only) ---------------------------------------- */
+/* All four day-cycle keyframes share the same percentages and the 0% = 100% state, so the loop is seamless.
+   0% dawn - 22% morning - 36% daylight - 50% high sun - 64% golden hour - 80% sunset - 92% soft evening */
+@keyframes bt-sun {
+    0%   { transform: translateY(6%)  scale(0.86); opacity: 0.38; }
+    22%  { transform: translateY(1%)  scale(1);    opacity: 0.72; }
+    36%  { transform: translateY(-4%) scale(1.1);  opacity: 0.88; }
+    50%  { transform: translateY(-3%) scale(1.07); opacity: 0.82; }
+    64%  { transform: translateY(0)   scale(1.02); opacity: 0.72; }
+    80%  { transform: translateY(4%)  scale(0.92); opacity: 0.5; }
+    92%  { transform: translateY(7%)  scale(0.84); opacity: 0.3; }
+    100% { transform: translateY(6%)  scale(0.86); opacity: 0.38; }
+}
+
+@keyframes bt-light {
+    0%   { opacity: 0.2; }
+    22%  { opacity: 0.6; }
+    36%  { opacity: 1; }
+    50%  { opacity: 0.8; }
+    64%  { opacity: 0.3; }
+    78%  { opacity: 0; }
+    100% { opacity: 0.2; }
+}
+
+@keyframes bt-tint {
+    0%   { opacity: 0.35; }
+    22%  { opacity: 0.05; }
+    42%  { opacity: 0; }
+    56%  { opacity: 0.45; }
+    72%  { opacity: 1; }
+    82%  { opacity: 0.8; }
+    92%  { opacity: 0.55; }
+    100% { opacity: 0.35; }
+}
+
+@keyframes bt-dusk {
+    0%   { opacity: 0.25; }
+    22%  { opacity: 0; }
+    62%  { opacity: 0; }
+    80%  { opacity: 0.5; }
+    92%  { opacity: 1; }
+    100% { opacity: 0.25; }
+}
+
+@keyframes bt-haze {
+    from { transform: translate3d(-2.5%, 0, 0); }
+    to   { transform: translate3d(2.5%, 0, 0); }
+}
+
+/* Crosses the section over ~70% of the cycle, invisible (off-screen) for the rest */
+@keyframes bt-fly {
+    0%   { opacity: 0; transform: translate3d(-8cqw, 0, 0); }
+    4%   { opacity: var(--bt-peak, 0.75); }
+    32%  { transform: translate3d(34cqw, -0.6rem, 0); }
+    62%  { transform: translate3d(70cqw, 0.4rem, 0); }
+    70%  { opacity: var(--bt-peak, 0.75); }
+    74%  { opacity: 0; transform: translate3d(108cqw, -0.4rem, 0); }
+    100% { opacity: 0; transform: translate3d(108cqw, -0.4rem, 0); }
+}
+
+@keyframes bt-flap {
+    from { transform: scaleY(1); }
+    to   { transform: scaleY(0.45); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .better-tomorrow__glow {
+        animation: none;
+        opacity: 0.6;
+        transform: none;
+    }
+
+    .better-tomorrow__light,
+    .better-tomorrow__tint,
+    .better-tomorrow__dusk {
+        animation: none;
+        will-change: auto;
+    }
+
+    .better-tomorrow__light {
+        opacity: 0.3;
+    }
+
+    .better-tomorrow__haze {
+        animation: none;
+    }
+
+    .better-tomorrow__birds {
+        display: none;
+    }
+}

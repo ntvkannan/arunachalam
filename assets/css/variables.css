@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Design tokens — centralized so they can be refined later.
+   Dark theme is applied via [data-theme="dark"] on <html>.
+   ========================================================================== */
+
+:root {
+    /* Brand palette (sampled from the approved reference) */
+    --blue-700: #0a3d91;
+    --blue-600: #0b4aa8;
+    --blue-500: #1766d6;
+    --blue-400: #3b8bf0;
+    --navy-900: #0a1f44;
+    --navy-800: #0f2a5c;
+    --gold-500: #f5a623;
+    --gold-400: #f7b84b;
+    --orange-500: #f26b21;
+    --white: #ffffff;
+
+    /* Semantic colors — light theme */
+    --color-primary: var(--blue-500);
+    --color-primary-strong: var(--blue-600);
+    --color-navy: var(--navy-900);
+    --color-accent: var(--gold-500);
+    --color-accent-warm: var(--orange-500);
+    --color-white: var(--white);
+    --color-background: #f6f9ff;
+    --color-surface: #ffffff;
+    --color-surface-alt: #eef4fd;
+    --color-text: var(--navy-900);
+    --color-muted: #51607a;
+    --color-border: #dbe5f3;
+    --color-on-primary: #ffffff;
+    --color-focus: var(--blue-400);
+
+    /* Typography */
+    --font-sans: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-heading: var(--font-sans);
+    --font-script: "Caveat", "Segoe Script", "Brush Script MT", cursive;
+    --font-serif: Georgia, "Times New Roman", serif;
+
+    --fs-xs: clamp(0.75rem, 0.73rem + 0.1vw, 0.8125rem);
+    --fs-sm: clamp(0.875rem, 0.85rem + 0.12vw, 0.9375rem);
+    --fs-base: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+    --fs-lg: clamp(1.125rem, 1.06rem + 0.32vw, 1.3125rem);
+    --fs-xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+    --fs-2xl: clamp(2rem, 1.6rem + 2vw, 3rem);
+    --fs-3xl: clamp(2.5rem, 1.9rem + 3vw, 4rem);
+
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    --lh-tight: 1.15;
+    --lh-base: 1.6;
+
+    /* Spacing scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: 4rem;
+    --space-9: 6rem;
+    --section-space: clamp(3rem, 2rem + 5vw, 6rem);
+
+    /* Layout */
+    --container-max: 1200px;
+    --container-pad: clamp(1rem, 0.5rem + 2.5vw, 2rem);
+    --header-height: 4.5rem;
+
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-pill: 999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(10, 31, 68, 0.08);
+    --shadow-md: 0 6px 18px rgba(10, 31, 68, 0.1);
+    --shadow-lg: 0 16px 40px rgba(10, 31, 68, 0.16);
+
+    /* Transitions */
+    --duration-fast: 150ms;
+    --duration-base: 250ms;
+    --duration-slow: 500ms;
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-base: var(--duration-base) var(--ease-standard);
+
+    /* Z-index scale */
+    --z-base: 1;
+    --z-header: 100;
+    --z-overlay: 200;
+    --z-modal: 300;
+    --z-skip-link: 1000;
+
+    color-scheme: light;
+}
+
+[data-theme="dark"] {
+    --color-primary: var(--blue-400);
+    --color-primary-strong: var(--blue-500);
+    --color-navy: #dbe7ff;
+    --color-accent: var(--gold-400);
+    --color-accent-warm: #ff8a4c;
+    --color-background: #07132b;
+    --color-surface: #0e1f40;
+    --color-surface-alt: #122850;
+    --color-text: #e8eefb;
+    --color-muted: #9fb0cf;
+    --color-border: #1f3562;
+    --color-on-primary: #ffffff;
+    --color-focus: var(--blue-400);
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+
+    color-scheme: dark;
+}
+
+/* Breakpoints (reference only — custom properties can't be used in media queries):
+   mobile        < 640px   (base styles, mobile-first)
+   tablet        ≥ 640px   (min-width: 40em)
+   desktop       ≥ 1024px  (min-width: 64em)
+   large desktop ≥ 1440px  (min-width: 90em)
+*/

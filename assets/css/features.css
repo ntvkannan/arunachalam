@@ -1,0 +1,237 @@
+/* ==========================================================================
+   Feature highlights — four-item bar below the hero
+   Subtle continuous icon motion (transform/opacity only, CSS keyframes).
+   ========================================================================== */
+
+.features {
+    --feature-icon-from: var(--blue-700);
+    --feature-icon-to: var(--blue-400);
+
+    position: relative;
+    z-index: var(--z-base);
+    padding-bottom: 0;
+}
+
+.features .features__list {
+    display: grid;
+    margin: 0;
+    padding: var(--space-3) var(--space-5);
+    list-style: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    box-shadow: var(--shadow-md);
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+}
+
+.feature + .feature {
+    border-top: 1px solid var(--color-border);
+}
+
+.feature__icon {
+    flex: 0 0 3rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+[data-theme="dark"] .features {
+    --feature-icon-from: var(--blue-500);
+    --feature-icon-to: #8ec1ff;
+}
+
+/* Shared gradient used as the stroke of all four icons */
+.feature__defs {
+    position: absolute;
+}
+
+.feature__stop--from { stop-color: var(--feature-icon-from); }
+.feature__stop--to   { stop-color: var(--feature-icon-to); }
+
+.feature__title {
+    font-size: var(--fs-base);
+    font-weight: var(--fw-semibold);
+    line-height: 1.3;
+    color: var(--color-navy);
+}
+
+.feature__text {
+    margin-top: var(--space-1);
+    font-size: var(--fs-sm);
+    line-height: 1.5;
+    color: var(--color-muted);
+}
+
+/* Line-draw animation: each stroke draws in, holds, then retracts (pathLength="1" on every shape).
+   Per-icon duration/offset keep the four icons out of sync; --i staggers the strokes in an icon. */
+.feature__icon .draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: feature-draw var(--draw-dur, 6s) ease-in-out calc(var(--draw-delay, 0s) + var(--i, 0) * var(--draw-step, 0.4s)) infinite backwards;
+}
+
+.feature:nth-child(1) .feature__icon { --draw-dur: 6s;   --draw-delay: 0.3s; --draw-step: 0.45s; }
+.feature:nth-child(2) .feature__icon { --draw-dur: 8s;   --draw-delay: 1.4s; --draw-step: 0.7s; }
+.feature:nth-child(3) .feature__icon { --draw-dur: 7s;   --draw-delay: 0.8s; --draw-step: 0.4s; }
+.feature:nth-child(4) .feature__icon { --draw-dur: 5.5s; --draw-delay: 2s;   --draw-step: 0.35s; }
+
+.feature__icon > :nth-child(2) { --i: 1; }
+.feature__icon > :nth-child(3) { --i: 2; }
+.feature__icon > :nth-child(4) { --i: 3; }
+.feature__icon > :nth-child(5) { --i: 4; }
+
+/* draw ~24% of the cycle, hold until ~74%, retract back along the same line */
+@keyframes feature-draw {
+    0%   { stroke-dashoffset: 1; opacity: 0; }
+    1%   { opacity: 1; }
+    24%  { stroke-dashoffset: 0; }
+    74%  { stroke-dashoffset: 0; opacity: 1; }
+    99%  { opacity: 1; }
+    100% { stroke-dashoffset: 1; opacity: 0; }
+}
+
+/* Tablet: 2 x 2 */
+@media (min-width: 40em) {
+    .features .features__list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: var(--space-6);
+        padding-block: var(--space-4);
+    }
+
+    .feature {
+        gap: var(--space-4);
+        padding-block: var(--space-5);
+    }
+
+    .feature__icon {
+        flex-basis: 3.5rem;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .feature + .feature {
+        border-top: 0;
+    }
+
+    .feature:nth-child(n + 3) {
+        border-top: 1px solid var(--color-border);
+    }
+
+    .feature:nth-child(even) {
+        position: relative;
+    }
+
+    .feature:nth-child(even)::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: calc(var(--space-6) / -2);
+        width: 1px;
+        height: 4.75rem;
+        background-color: var(--color-border);
+        translate: 0 -50%;
+    }
+}
+
+/* Desktop: single row of four equal columns; each divider sits on the shared edge */
+@media (min-width: 64em) {
+    .features {
+        margin-top: calc(var(--space-5) * -1);
+    }
+
+    .features .features__list {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        column-gap: 0;
+        padding: 0 var(--space-3);
+    }
+
+    .feature,
+    .feature:nth-child(n + 3) {
+        position: relative;
+        gap: 0.75rem;
+        padding: var(--space-5) 0.625rem;
+        border-top: 0;
+    }
+
+    .feature::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 1px;
+        height: 4.75rem;
+        background-color: var(--color-border);
+        translate: 0 -50%;
+    }
+
+    .feature:first-child::before {
+        display: none;
+    }
+
+    .feature__icon {
+        flex-basis: 2.875rem;
+        width: 2.875rem;
+        height: 2.875rem;
+    }
+
+    .feature__title {
+        font-size: 0.8125rem;
+    }
+
+    .feature__text {
+        font-size: 0.8125rem;
+    }
+}
+
+/* Wide desktop */
+@media (min-width: 80em) {
+    .feature,
+    .feature:nth-child(n + 3) {
+        gap: 1.125rem;
+        padding-inline: var(--space-4);
+    }
+
+    .feature__icon {
+        flex-basis: 3.5rem;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .feature__title,
+    .feature__text {
+        font-size: var(--fs-sm);
+    }
+}
+
+/* Large desktop: full-size icons and comfortable gutters */
+@media (min-width: 90em) {
+    .feature,
+    .feature:nth-child(n + 3) {
+        gap: 1.375rem;
+        padding-inline: var(--space-4);
+    }
+
+    .feature__icon {
+        flex-basis: 3.75rem;
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+
+    .feature__title {
+        font-size: var(--fs-base);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .feature__icon .draw {
+        animation: none;
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}

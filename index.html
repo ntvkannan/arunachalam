@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>R. Arunachalam — One Man Many Creations</title>
+    <meta name="description" content="[Meta description placeholder — to be provided]">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="icon" href="assets/images/favicon/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/images/favicon/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="assets/images/favicon/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&amp;family=Poppins:wght@400;500;600;700&amp;display=swap">
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/hero.css">
+    <link rel="stylesheet" href="assets/css/features.css">
+    <link rel="stylesheet" href="assets/css/projects.css">
+    <link rel="stylesheet" href="assets/css/better-tomorrow.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <!-- Applies the saved/system theme before first paint to avoid a flash -->
+    <script src="assets/js/theme.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="app" id="app">
+        <header class="site-header" id="site-header">
+            <div class="container site-header__inner">
+                <a class="brand" href="#" aria-label="R. Arunachalam — One Man Many Creations, home">
+                    <img class="brand__avatar" src="assets/images/profile/arunachalam-avatar.jpg" alt="" width="190" height="186">
+                    <span class="brand__text">
+                        <span class="brand__name">R. Arunachalam</span>
+                        <span class="brand__tagline">One Man Many Creations</span>
+                    </span>
+                </a>
+
+                <div class="site-header__actions">
+                    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+                        <ul class="primary-nav__list" role="list">
+                            <!-- Placeholder targets; point these to real section ids as sections are built -->
+                            <li><a class="primary-nav__link" href="#home" aria-current="page">Home</a></li>
+                            <li><a class="primary-nav__link" href="#">About</a></li>
+                            <li><a class="primary-nav__link" href="#">Creations</a></li>
+                            <li><a class="primary-nav__link" href="#">Contact</a></li>
+                        </ul>
+                    </nav>
+
+                    <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode">
+                        <span class="theme-toggle__knob" aria-hidden="true"></span>
+                        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                        </svg>
+                        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false">
+                            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+                        </svg>
+                    </button>
+
+                    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+                            <path class="menu-toggle__bar menu-toggle__bar--top" d="M4 7h16"/>
+                            <path class="menu-toggle__bar menu-toggle__bar--mid" d="M4 12h16"/>
+                            <path class="menu-toggle__bar menu-toggle__bar--bot" d="M4 17h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+        </header>
+
+        <main id="main" tabindex="-1">
+            <section class="hero" id="home" aria-labelledby="hero-title">
+                <div class="hero__bg" aria-hidden="true"></div>
+
+                <div class="container hero__inner">
+                    <div class="hero__copy">
+                        <p class="hero__eyebrow"><span>Ideas</span><span>Service</span><span>A Better Tomorrow</span></p>
+                        <h1 class="hero__title" id="hero-title">
+                            <span class="hero__name">R. Arunachalam</span>
+                            <span class="hero__subtitle">One Man Many Creations</span>
+                        </h1>
+                        <p class="hero__text">Explore the creative world of R. Arunachalam – a journey of ideas, service and inspiration through different projects. Each project reflects a purpose and a vision for a better society.</p>
+                    </div>
+
+                    <div class="hero__media">
+                        <button class="video-card" type="button" data-video-open aria-label="Play video: One Man Many Creations">
+                            <img class="video-card__img" src="assets/images/profile/arunachalam-portrait.jpg" alt="" width="377" height="375" loading="lazy" decoding="async">
+                            <span class="video-card__body" aria-hidden="true">
+                                <span class="video-card__kicker">One Man Many Creations</span>
+                                <span class="video-card__row">
+                                    <span class="video-card__play">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" focusable="false"><path d="M8 5.5v13l11-6.5z"/></svg>
+                                    </span>
+                                    <span class="video-card__name">R. Arunachalam</span>
+                                </span>
+                            </span>
+                        </button>
+
+                        <button class="hero__cta" type="button" data-video-open>
+                            <span class="hero__cta-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" focusable="false"><path d="M8 5.5v13l11-6.5z"/></svg>
+                            </span>
+                            <span>Watch Birds Eye View</span>
+                            <svg class="hero__cta-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="hero__portrait">
+                        <img class="hero__portrait-img" src="assets/images/profile/arunachalam-portrait.jpg" alt="Portrait of R. Arunachalam" width="377" height="375" fetchpriority="high" decoding="async">
+                        <figure class="hero__quote">
+                            <blockquote><p>“Creativity is the bridge between ideas and a better world.”</p></blockquote>
+                            <figcaption>– R. Arunachalam</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features" id="features" aria-label="Highlights">
+                <div class="container">
+                    <svg class="feature__defs" width="0" height="0" aria-hidden="true" focusable="false">
+                    <defs>
+                        <linearGradient id="feature-icon-gradient" gradientUnits="userSpaceOnUse" x1="4" y1="4" x2="44" y2="44">
+                            <stop offset="0" class="feature__stop feature__stop--from"/>
+                            <stop offset="1" class="feature__stop feature__stop--to"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <ul class="features__list" role="list">
+                        <li class="feature">
+                            <svg class="feature__icon" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="url(#feature-icon-gradient)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <path class="draw" pathLength="1" d="M17 33.5c0-3-4.5-5-4.5-11a11.5 11.5 0 0 1 23 0c0 6-4.5 8-4.5 11z"/>
+                                <path class="draw" pathLength="1" d="M18 37.5h12M19.5 41.5h9"/>
+                                <path class="draw" pathLength="1" d="M24 5v3M9.5 10.5l2.1 2.1M38.5 10.5l-2.1 2.1M4 22h3M41 22h3"/>
+                            </svg>
+                            <div class="feature__body">
+                                <h2 class="feature__title">People Focused</h2>
+                                <p class="feature__text">Creating value for people and communities</p>
+                            </div>
+                        </li>
+                        <li class="feature">
+                            <svg class="feature__icon" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="url(#feature-icon-gradient)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <path class="draw" pathLength="1" d="M20.5 5h7l1 4.6 3.4 1.4 4-2.5 5 5-2.5 4 1.4 3.4 4.6 1v7l-4.6 1-1.4 3.4 2.5 4-5 5-4-2.5-3.4 1.4-1 4.6h-7l-1-4.6-3.4-1.4-4 2.5-5-5 2.5-4-1.4-3.4L2 28.5v-7l4.6-1 1.4-3.4-2.5-4 5-5 4 2.5 3.4-1.4z" transform="translate(.96 .96) scale(.96)"/>
+                                <circle class="draw" pathLength="1" cx="24" cy="24" r="6.5"/>
+                            </svg>
+                            <div class="feature__body">
+                                <h2 class="feature__title">Service Driven</h2>
+                                <p class="feature__text">Projects with purpose and real impact</p>
+                            </div>
+                        </li>
+                        <li class="feature">
+                            <svg class="feature__icon" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="url(#feature-icon-gradient)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <circle class="draw" pathLength="1" cx="24" cy="15" r="5.5"/>
+                                <path class="draw" pathLength="1" d="M13.5 38v-4a7 7 0 0 1 7-7h7a7 7 0 0 1 7 7v4z"/>
+                                <circle class="draw" pathLength="1" cx="9" cy="19" r="3.5"/>
+                                <circle class="draw" pathLength="1" cx="39" cy="19" r="3.5"/>
+                                <path class="draw" pathLength="1" d="M10 25a6 6 0 0 0-7 5.5V35h6M38 25a6 6 0 0 1 7 5.5V35h-6"/>
+                            </svg>
+                            <div class="feature__body">
+                                <h2 class="feature__title">Community Oriented</h2>
+                                <p class="feature__text">Together for a better and stronger society</p>
+                            </div>
+                        </li>
+                        <li class="feature">
+                            <svg class="feature__icon" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="url(#feature-icon-gradient)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <path class="draw" pathLength="1" d="M32.25 38.29A16 16 0 1 1 35.77 17.84"/>
+                                <circle class="draw" pathLength="1" cx="22" cy="26" r="9"/>
+                                <circle class="draw" pathLength="1" cx="22" cy="26" r="2.4"/>
+                                <path class="draw" pathLength="1" d="M23.5 24.5L40 8"/>
+                                <path class="draw" pathLength="1" d="M34 9.5l1.5-6.5 3.5 3.5M40 8l6.5-1.5-3.5-3.5"/>
+                            </svg>
+                            <div class="feature__body">
+                                <h2 class="feature__title">A Brighter Tomorrow</h2>
+                                <p class="feature__text">Ideas and initiatives for a sustainable future</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="projects" id="creations" aria-labelledby="creations-title">
+                <div class="container">
+                    <header class="projects__intro">
+                        <p class="projects__eyebrow">Explore</p>
+                        <h2 class="projects__title" id="creations-title">R. Arunachalam Creations</h2>
+                        <p class="projects__lead">Eight unique projects. Eight different worlds. Each with a purpose.<br>Click on any project to explore in detail.</p>
+                    </header>
+
+                    <p class="visually-hidden" id="project-new-tab">Opens in a new tab</p>
+                    <ul class="projects__grid" role="list">
+                        <li class="project project--01">
+                            <a class="project__card" href="https://www.arunachalamrrnagar.com" target="_blank" rel="noopener noreferrer" aria-labelledby="project-01-title" aria-describedby="project-new-tab">
+                                <header class="project__head">
+                                    <span class="project__number">01</span>
+                                    <h3 class="project__title" id="project-01-title">FOUNDER &amp; ARCHITECT OF RR NAGAR</h3>
+                                </header>
+                                <div class="project__media">
+                                    <img class="project__img" src="assets/images/projects/project-01-rr-nagar.jpg" alt="Ornate arched gateway over a road" width="378" height="306" loading="lazy" decoding="async">
+                                    <span class="project__arrow" aria-hidden="true"><svg class="project__ring" viewBox="0 0 44 44" focusable="false"><circle pathLength="1" cx="22" cy="22" r="20.5" transform="rotate(-90 22 22)"/></svg><svg class="project__glyph" viewBox="0 0 24 24" width="20" height="20" focusable="false"><path pathLength="1" d="M5 12h14"/><path pathLength="1" d="M13 6l6 6-6 6"/></svg></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="project project--02">
+                            <a class="project__card" href="https://www.bestclub-arunachalam.com" target="_blank" rel="noopener noreferrer" aria-labelledby="project-02-title" aria-describedby="project-new-tab">
+                                <header class="project__head">
+                                    <span class="project__number">02</span>
+                                    <h3 class="project__title" id="project-02-title">FOUNDER &amp; CREATOR BEST CLUB</h3>
+                                </header>
+                                <div class="project__media">
+                                    <img class="project__img" src="assets/images/projects/project-02-best-club.jpg" alt="Colourful umbrella in a green park with palm trees" width="386" height="306" loading="lazy" decoding="async">
+                                    <span class="project__arrow" aria-hidden="true"><svg class="project__ring" viewBox="0 0 44 44" focusable="false"><circle pathLength="1" cx="22" cy="22" r="20.5" transform="rotate(-90 22 22)"/></svg><svg class="project__glyph" viewBox="0 0 24 24" width="20" height="20" focusable="false"><path pathLength="1" d="M5 12h14"/><path pathLength="1" d="M13 6l6 6-6 6"/></svg></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="project project--03">
+                            <a class="project__card" href="https://www.temples-arunachalam.com" target="_blank" rel="noopener noreferrer" aria-labelledby="project-03-title" aria-describedby="project-new-tab">
+                                <header class="project__head">
+                                    <span class="project__number">03</span>
+                                    <h3 class="project__title" id="project-03-title">CREATOR OF TEMPLES</h3>
+                                </header>
+                                <div class="project__media">
+                                    <img class="project__img" src="assets/images/projects/project-03-temples.jpg" alt="Ornate gopuram temple towers under a blue sky" width="384" height="306" loading="lazy" decoding="async">
+                                    <span class="project__arrow" aria-hidden="true"><svg class="project__ring" viewBox="0 0 44 44" focusable="false"><circle pathLength="1" cx="22" cy="22" r="20.5" transform="rotate(-90 22 22)"/></svg><svg class="project__glyph" viewBox="0 0 24 24" width="20" height="20" focusable="false"><path pathLength="1" d="M5 12h14"/><path pathLength="1" d="M13 6l6 6-6 6"/></svg></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="project project--04">
+                            <a class="project__card" href="https://www.agri-impa.com" target="_blank" rel="noopener noreferrer" aria-labelledby="project-04-title" aria-describedby="project-new-tab">
+                                <header class="project__head">
+                                    <span class="project__number">04</span>
+                                    <h3 class="project__title" id="project-04-title">INTEGRATED MARKETING &amp; PRODUCERS' ASSOCIATION</h3>
+                                </header>
+                                <div class="project__media">
+                                    <img class="project__img" src="assets/images/projects/project-04-marketing.jpg" alt="Hand holding a young plant in soil above a green field" width="382" height="306" loading="lazy" decoding="async">
+                                    <span class="project__arrow" aria-hidden="true"><svg class="project__ring" viewBox="0 0 44 44" focusable="false"><circle pathLength="1" cx="22" cy="22" r="20.5" transform="rotate(-90 22 22)"/></svg><svg class="project__glyph" viewBox="0 0 24 24" width="20" height="20" focusable="false"><path pathLength="1" d="M5 12h14"/><path pathLength="1" d="M13 6l6 6-6 6"/></svg></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="project project--05">
+                            <a class="project__card" href="https://www.arunachalam45000plots.com" target="_blank" rel="noopener noreferrer" aria-labelledby="project-05-title" aria-describedby="project-new-tab">
+                                <header class="project__head">
+                                    <span class="project__number">05</span>
+                                    <h3 class="project__title" id="project-05-title">EXECUTION OF 45000 SITES</h3>
+                                </header>
+                                <div class="project__media">
+                                    <img class="project__img" src="assets/images/projects/project-05-45000-sites.jpg" alt="Aerial view of laid-out residential sites and roads" width="378" height="339" loading="lazy" decoding="async">
+                                    <span class="project__arrow" aria-hidden="true"><svg class="project__ring" viewBox="0 0 44 44" focusable="false"><circle pathLength="1" cx="22" cy="22" r="20.5" transform="rotate(-90 22 22)"/></svg><svg class="project__glyph" viewBox="0 0 24 24" width="20" height="20" focusable="false"><path pathLength="1" d="M5 12h14"/><path pathLength="1" d="M13 6l6 6-6 6"/></svg></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="project project--06">
+                            <a class="project__card" href="https://www.arunachalam-creations.com" target="_blank" rel="noopener noreferrer" aria-labelledby="project-06-title" aria-describedby="project-new-tab">
+                                <header class="project__head">
+                                    <span class="project__number">06</span>
+                                    <h3 class="project__title" id="project-06-title">BARREN HILLOCK INTO HEAVEN</h3>
+                                </header>
+                                <div class="project__media">
+                                    <img class="project__img" src="assets/images/projects/project-06-barren-hillock.jpg" alt="Green landscaped hillside with winding roads and a hill behind" width="386" height="339" loading="lazy" decoding="async">
+                                    <span class="project__arrow" aria-hidden="true"><svg class="project__ring" viewBox="0 0 44 44" focusable="false"><circle pathLength="1" cx="22" cy="22" r="20.5" transform="rotate(-90 22 22)"/></svg><svg class="project__glyph" viewBox="0 0 24 24" width="20" height="20" focusable="false"><path pathLength="1" d="M5 12h14"/><path pathLength="1" d="M13 6l6 6-6 6"/></svg></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="project project--07">
+                            <a class="project__card" href="https://www.impa.website" target="_blank" rel="noopener noreferrer" aria-labelledby="project-07-title" aria-describedby="project-new-tab">
+                                <header class="project__head">
+                                    <span class="project__number">07</span>
+                                    <h3 class="project__title" id="project-07-title">INTERNATIONAL MUDALIAR &amp; PILLAIMAR ASSOCIATION</h3>
+                                </header>
+                                <div class="project__media">
+                                    <img class="project__img" src="assets/images/projects/project-07-association.jpg" alt="Globe with a deity figure and silhouettes of people" width="384" height="339" loading="lazy" decoding="async">
+                                    <span class="project__arrow" aria-hidden="true"><svg class="project__ring" viewBox="0 0 44 44" focusable="false"><circle pathLength="1" cx="22" cy="22" r="20.5" transform="rotate(-90 22 22)"/></svg><svg class="project__glyph" viewBox="0 0 24 24" width="20" height="20" focusable="false"><path pathLength="1" d="M5 12h14"/><path pathLength="1" d="M13 6l6 6-6 6"/></svg></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="project project--08">
+                            <a class="project__card" href="https://www.arunachalam-socialwork.com" target="_blank" rel="noopener noreferrer" aria-labelledby="project-08-title" aria-describedby="project-new-tab">
+                                <header class="project__head">
+                                    <span class="project__number">08</span>
+                                    <h3 class="project__title" id="project-08-title">SOCIAL WORK ACTIVITIES &amp; AWARDS</h3>
+                                </header>
+                                <div class="project__media">
+                                    <img class="project__img" src="assets/images/projects/project-08-social-work.jpg" alt="Hands holding a globe with a group of people on top" width="382" height="339" loading="lazy" decoding="async">
+                                    <span class="project__arrow" aria-hidden="true"><svg class="project__ring" viewBox="0 0 44 44" focusable="false"><circle pathLength="1" cx="22" cy="22" r="20.5" transform="rotate(-90 22 22)"/></svg><svg class="project__glyph" viewBox="0 0 24 24" width="20" height="20" focusable="false"><path pathLength="1" d="M5 12h14"/><path pathLength="1" d="M13 6l6 6-6 6"/></svg></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="better-tomorrow" id="better-tomorrow">
+                <div class="better-tomorrow__scene" aria-hidden="true">
+                    <picture>
+                        <source srcset="assets/images/better-tomorrow/better-tomorrow-background.webp" type="image/webp">
+                        <img class="better-tomorrow__img" src="assets/images/better-tomorrow/better-tomorrow-background.png" alt="" width="2171" height="724" loading="lazy" decoding="async">
+                    </picture>
+                    <div class="better-tomorrow__haze"></div>
+                    <div class="better-tomorrow__sky">
+                        <div class="better-tomorrow__light"></div>
+                        <div class="better-tomorrow__tint"></div>
+                        <div class="better-tomorrow__dusk"></div>
+                    </div>
+                    <div class="better-tomorrow__glow"></div>
+                </div>
+                <div class="better-tomorrow__birds" aria-hidden="true">
+                    <div class="bt-flock bt-flock--a"><svg class="bt-bird" viewBox="0 0 20 8" aria-hidden="true" focusable="false"><path d="M1 6.5Q5 .5 10 5 15 .5 19 6.5"/></svg><svg class="bt-bird" viewBox="0 0 20 8" aria-hidden="true" focusable="false"><path d="M1 6.5Q5 .5 10 5 15 .5 19 6.5"/></svg><svg class="bt-bird" viewBox="0 0 20 8" aria-hidden="true" focusable="false"><path d="M1 6.5Q5 .5 10 5 15 .5 19 6.5"/></svg></div>
+                    <div class="bt-flock bt-flock--b"><svg class="bt-bird" viewBox="0 0 20 8" aria-hidden="true" focusable="false"><path d="M1 6.5Q5 .5 10 5 15 .5 19 6.5"/></svg><svg class="bt-bird" viewBox="0 0 20 8" aria-hidden="true" focusable="false"><path d="M1 6.5Q5 .5 10 5 15 .5 19 6.5"/></svg></div>
+                    <div class="bt-flock bt-flock--c"><svg class="bt-bird" viewBox="0 0 20 8" aria-hidden="true" focusable="false"><path d="M1 6.5Q5 .5 10 5 15 .5 19 6.5"/></svg><svg class="bt-bird" viewBox="0 0 20 8" aria-hidden="true" focusable="false"><path d="M1 6.5Q5 .5 10 5 15 .5 19 6.5"/></svg></div>
+                </div>
+                <div class="better-tomorrow__content">
+                    <blockquote class="better-tomorrow__quote">
+                        <p>&ldquo;Ideas for People<br>Projects for a Better Tomorrow&rdquo;</p>
+                    </blockquote>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer section goes here -->
+        <footer class="site-footer" id="site-footer">
+            <div class="container footer__inner">
+                <div class="footer__main">
+                    <a class="footer__brand" href="#home" aria-label="R. Arunachalam — One Man Many Creations, back to top">
+                        <img class="footer__avatar" src="assets/images/profile/arunachalam-avatar.jpg" alt="" width="190" height="186" loading="lazy" decoding="async">
+                        <span class="footer__brand-text">
+                            <span class="footer__name">R. Arunachalam</span>
+                            <span class="footer__tagline">One Man Many Creations</span>
+                        </span>
+                    </a>
+
+                    <nav class="footer__nav" aria-label="Footer">
+                        <ul class="footer__nav-list" role="list">
+                            <!-- About and Contact destinations are pending (no sections yet): add href when available -->
+                            <li><a class="footer__link" href="#home">Home</a></li>
+                            <li><a class="footer__link" data-pending>About</a></li>
+                            <li><a class="footer__link" href="#creations">Projects</a></li>
+                            <li><a class="footer__link" data-pending>Contact</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="footer__actions">
+                        <!-- Social and Get in Touch destinations are pending: add href (plus target="_blank" rel="noopener noreferrer" for external) when supplied -->
+                        <ul class="footer__social" role="list">
+                            <li><a class="footer__social-link" data-pending><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg><span class="visually-hidden">Facebook</span></a></li>
+                            <li><a class="footer__social-link" data-pending><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg><span class="visually-hidden">YouTube</span></a></li>
+                            <li><a class="footer__social-link" data-pending><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.9 8.9H3.6V20h3.3zM5.3 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM20.4 13.5c0-3-1.6-4.8-4.1-4.8-1.5 0-2.4.8-2.8 1.4V8.9h-3.2V20h3.3v-6c0-1.6.8-2.5 2-2.5 1.2 0 1.8.9 1.8 2.5V20h3.3z"/></svg><span class="visually-hidden">LinkedIn</span></a></li>
+                        </ul>
+                        <span class="footer__actions-divider" aria-hidden="true"></span>
+                        <a class="footer__contact" data-pending><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg><span>Get in Touch</span></a>
+                    </div>
+                </div>
+
+                <hr class="footer__divider">
+
+                <div class="footer__bottom">
+                    <p class="footer__copyright">&copy; 2025 R. Arunachalam. All Rights Reserved.</p>
+                    <p class="footer__motto"><span>Ideas for People</span><span>Projects for a Better Tomorrow</span></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <dialog class="video-modal" id="video-modal" aria-label="Video">
+        <div class="video-modal__frame" id="video-modal-frame"></div>
+        <button class="video-modal__close" type="button" data-video-close aria-label="Close video">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+    </dialog>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <script src="assets/js/navigation.js" defer></script>
+    <script src="assets/js/animations.js" defer></script>
+    <script src="assets/js/hero.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>

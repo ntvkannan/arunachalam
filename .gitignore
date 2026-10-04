@@ -1,0 +1,21 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+
+# Dependencies and local environment
+node_modules/
+.env
+.env.*
+
+# Logs
+*.log
+
+# Project-specific: duplicate / unused local image files (kept on disk, not tracked)
+/assets/images/projects - Copy/
+/assets/images/projects/Card-Room-1-min-scaled.webp
+/assets/images/projects/Ornate Bengaluru Temple Gateway Traffic.png

@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Animation foundation
+   Shared animation tokens/helpers only. No animations are applied yet.
+   GSAP-driven animations live in assets/js/animations.js.
+   ========================================================================== */
+
+:root {
+    --anim-distance: 24px;
+    --anim-duration: 0.8s;
+    --anim-stagger: 0.1s;
+}
+
+/* Reduced motion: neutralize movement distances and durations for future animations */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --anim-distance: 0px;
+        --anim-duration: 0.01s;
+        --anim-stagger: 0s;
+    }
+}
