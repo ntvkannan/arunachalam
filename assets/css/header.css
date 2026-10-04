@@ -307,8 +307,11 @@
     }
 }
 
-/* Scroll lock while the mobile menu is open */
-html.nav-locked {
+/* Scroll lock while the mobile menu is open.
+   Lock via the body (whose overflow propagates to the viewport) instead of <html>:
+   base.css gives body overflow-x:hidden, so overflow:hidden on <html> would turn the body into its
+   own scroll container, and the sticky header (with the menu panel) would scroll out of view. */
+html.nav-locked body {
     overflow: hidden;
 }
 
